@@ -3,7 +3,7 @@ import JournalEntries from './JournalEntries';
 import {useDispatch, useSelector} from 'react-redux';
 import {logOutFirebase} from '../../actions/auth';
 import ModalDate from './ModalDate';
-import {startNewNote} from '../../actions/notes';
+import {noteCleanLogOut, startNewNote} from '../../actions/notes';
 
 export default function Sidebar() {
 
@@ -14,6 +14,7 @@ export default function Sidebar() {
 
     const handleLogOut = () => {
         dispatch(logOutFirebase());
+        dispatch(noteCleanLogOut());
     }
 
     const {name} = useSelector(

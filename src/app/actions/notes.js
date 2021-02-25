@@ -180,6 +180,12 @@ function addNewNote(idNote, note) {
     }
 }
 
+function noteCleanLogOut() {
+    return {
+        type: typesApp.notesLogoutClean,
+    }
+}
+
 export {
     startNewNote,
     setNotes,
@@ -188,4 +194,5 @@ export {
     startSaveNote,
     startUploadPicture,
     startDeleteNote,
+    noteCleanLogOut,
 }

@@ -47,6 +47,12 @@ function notesReducer(state = initialState, action) {
                 ...state,
                 notes: [payload.note, ...state.notes]
             }
+        case typesApp.notesLogoutClean:
+            return {
+                ...state,
+                notes: [],
+                activeNote: null,
+            };
         default:
             return state;
     }
