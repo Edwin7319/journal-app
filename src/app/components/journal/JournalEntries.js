@@ -1,17 +1,22 @@
 import React from 'react';
-import JournalEntry from "./JournalEntry";
+import JournalEntry from './JournalEntry';
+import {useSelector} from 'react-redux';
 
 export default function JournalEntries() {
 
-    const entries = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const {notes}  = useSelector(
+        (selec) => selec.notes
+    );
+
     return (
         <div className="journal__entries">
             {
-                entries
+                notes
                     .map(
                         (value) => (
                             <JournalEntry
-                                key={value}
+                                key={value.id}
+                                {...value}
                             />
                         )
                     )

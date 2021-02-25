@@ -5,7 +5,7 @@ export default function authReducer(state = {}, action) {
     switch (type) {
         case typesApp.login:
             return {
-                uuid: payload.uid,
+                uid: payload.uid,
                 name: payload.name,
             }
         case typesApp.logout: {

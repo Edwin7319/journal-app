@@ -14,7 +14,7 @@
 
   &:hover {
     background-color: darken($color: #fff, $amount: 20);
-    color: black;
+    color: #ffffff;
   }
 }
 
@@ -27,7 +27,8 @@
   }
 
   &:hover {
-    background-color: darken($color: $primary, $amount: 15)
+    background-color: darken($color: #d6d6d6, $amount: 1);
+    color: #001480;
   }
 }
 

@@ -1,4 +1,15 @@
 export const typesApp = {
     login: '[auth] login',
     logout: '[auth] logout',
+    formSetError: '[Form] set error',
+    formCleanError: '[Form] clean error',
+    startLoading: '[Form] start loading',
+    finishLoading: '[Form] finish loading',
+    notesAddNew: '[Notes] new note',
+    notesActive: '[Notes] set active note',
+    notesLoad: '[Notes] load notes',
+    notesUpdated: '[Notes] update note',
+    notesFileUrl: '[Notes] update file url',
+    notesDelete: '[Notes] delete note',
+    notesLogoutClean: '[Notes] logout clean',
 }

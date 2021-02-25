@@ -1,31 +1,68 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import * as moment from 'moment';
+import {useDispatch} from 'react-redux';
+import {activeNote} from "../../actions/notes";
 
-export default function JournalEntry() {
+
+function JournalEntry({body, date, id, title, url}) {
+
+    const dateCast = moment(date, 'YYYY-MM-DD')
+        .locale('es')
+        .format('ll');
+
+    const dispatch = useDispatch();
+
+    const handleNoteClic = () => {
+        const note = {
+            title,
+            date,
+            body,
+            url,
+        }
+        dispatch(activeNote(id, note));
+    }
+
     return (
-        <div className="journal__entry pointer">
-            <div className="journal__entry-picture"
-                 style={
-                     {
-                         backgroundSize: 'cover',
-                         backgroundImage: 'url(https://www.freecodecamp.org/news/content/images/2020/02/Ekran-Resmi-2019-11-18-18.08.13.png)'
+        <div className="journal__entry pointer"
+             onClick={handleNoteClic}
+        >
+            {
+                url &&
+                <div className="journal__entry-picture"
+                     style={
+                         {
+                             backgroundSize: 'cover',
+                             backgroundImage: `url(${url})`
+                         }
                      }
-                 }
-            >
-            </div>
+                >
+                </div>
+            }
 
             <div className="journal__entry-body">
                 <p className="journal__entry-title">
-                    Aprendiendo
+                    {title}
                 </p>
                 <p className="journal__entry-content">
-                    Talleres que se estan aprendiendo en feraido
+                    {body}
                 </p>
             </div>
 
             <div className="journal__entry-date-box">
-                <span>Monday</span>
-                <h4>27</h4>
+                <span>{dateCast}</span>
+                {/*<h4>27</h4>*/}
             </div>
         </div>
     );
 }
+
+JournalEntry.propTypes = {
+    body: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+}
+
+export default JournalEntry;
+

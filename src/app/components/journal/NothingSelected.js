@@ -4,11 +4,11 @@ export default function NothingSelected() {
     return (
         <div className="nothing__main-content">
             <p>
-                Select something
+                Seleccione una nota o
                 <br/>
-                Please create an entry
+                Por favor cree una nueva nota
             </p>
-            <i className="far fa-star fa-4x separation-top-5"></i>
+            <i className="far fa-star fa-4x separation-top-5"/>
         </div>
     );
 }
